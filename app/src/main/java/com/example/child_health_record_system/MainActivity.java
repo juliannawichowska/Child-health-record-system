@@ -48,9 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 String user_pass = passedit.getText().toString();
                 if (user_login != "" && user_pass != "") {
                     try {
+                        // dane wkładam do JSONa
                         logindata.put("login", user_login);
                         logindata.put("password", user_pass);
                         Log.e("TAG", logindata.toString());
+                        // link na serwer "servletdata" to nazwa klasy na serwerze
                         new SendJSONtoServer().execute("http://192.168.0.66:8080/dzienniczek-serwer/servletdata", logindata.toString());
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    // tą klase całą kopiować
     private class SendJSONtoServer extends AsyncTask<String, Void, String> {
 
         private ProgressDialog dialog = new ProgressDialog(MainActivity.this);
@@ -106,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
             return data;
         }
 
+        // funkcja która odbiera jakies dane z serwera w string result i wtedy mozna cos z tym robic
         @Override
         protected void onPostExecute(String result) {
             dialog.dismiss();
