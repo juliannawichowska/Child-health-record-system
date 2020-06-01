@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Child-health-record-system</string>
+
+    <string name="login">Podaj nowy login</string>
+    <string name="mail">Podaj adres e-mail</string>
+    <string name="password">Utwórz hasło</string>
+
+    <string name="register">Zarejestruj się</string>
 </resources>
