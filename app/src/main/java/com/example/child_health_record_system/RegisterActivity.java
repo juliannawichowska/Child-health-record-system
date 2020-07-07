@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
                         registerdata.put("password", user_password);
                         Log.e("TAG", registerdata.toString());
                         // link na serwer "registerdata" to nazwa klasy na serwerze
-                        new RegisterActivity.SendJSONtoServer().execute("http://192.168.0.136:9999/dzienniczek-serwer/registerdata", registerdata.toString());
+                        new RegisterActivity.SendJSONtoServer().execute("http://192.168.0.66:8080/dzienniczek-serwer/registerdata", registerdata.toString());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

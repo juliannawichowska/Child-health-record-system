@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                         logindata.put("password", user_pass);
                         Log.e("TAG", logindata.toString());
                         // link na serwer "servletdata" to nazwa klasy na serwerze
-                        new SendJSONtoServer().execute("http://192.168.0.136:9999/dzienniczek-serwer/servletdata", logindata.toString());
+                        new SendJSONtoServer().execute("http://" + MainActivity.my_url +"/dzienniczek-serwer/servletdata", logindata.toString());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
