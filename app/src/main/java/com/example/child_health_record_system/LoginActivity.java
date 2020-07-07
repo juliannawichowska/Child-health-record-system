@@ -23,7 +23,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
-
+    public static String user_pass;
+    public static String user_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         logintext.setText("Wpisz swój login bądź adres e-mail");
         TextView passtext = findViewById(R.id.textView2);
         passtext.setText("Wpisz swoje hasło");
+
 
         final EditText loginedit = findViewById(R.id.editText3);
         final EditText passedit = findViewById(R.id.editText4);
@@ -45,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 JSONObject logindata = new JSONObject();
-                String user_login = loginedit.getText().toString();
-                String user_pass = passedit.getText().toString();
+                loginedit.getText().toString();
+                 passedit.getText().toString();
                 if (user_login != "" && user_pass != "") {
                     try {
                         // dane wkładam do JSONa

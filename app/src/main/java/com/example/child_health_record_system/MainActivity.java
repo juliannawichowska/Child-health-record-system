@@ -2,6 +2,7 @@ package com.example.child_health_record_system;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // tutaj powinna otwierac sie klasa AddNewChild
+                Intent intent = new Intent(MainActivity.this,AddNewChild.class);
+                        startActivity(intent);
             }
         });
     }

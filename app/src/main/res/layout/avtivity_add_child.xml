@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/child_name"
+        android:layout_width="168dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="40dp"
+        android:text="Imie dziecka"
+        app:layout_constraintBottom_toTopOf="@+id/child_surname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="NotSibling" />
+
+    <EditText
+        android:id="@+id/child_surname"
+        android:layout_width="123dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="40dp"
+        android:text="Nawisko dziecka"
+        app:layout_constraintBottom_toTopOf="@+id/child_pesel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="NotSibling" />
+
+    <EditText
+        android:id="@+id/child_pesel"
+        android:layout_width="71dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="48dp"
+        android:text="PESEL"
+        app:layout_constraintBottom_toTopOf="@+id/child_weight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="NotSibling,UnknownId" />
+
+    <EditText
+        android:id="@+id/child_weight"
+        android:layout_width="69dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="32dp"
+        android:text="waga"
+        app:layout_constraintBottom_toTopOf="@+id/child_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="NotSibling" />
+
+    <EditText
+        android:id="@+id/child_height"
+        android:layout_width="125dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="56dp"
+        android:text="wzrost"
+        app:layout_constraintBottom_toTopOf="@+id/child_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="NotSibling" />
+
+    <EditText
+        android:id="@+id/child_date"
+        android:layout_width="127dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="32dp"
+        android:text="data narodzin"
+        app:layout_constraintBottom_toTopOf="@+id/child_commit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints,UnknownId" />
+
+    <Button
+        android:id="@+id/child_commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:text="Zatwierdz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
