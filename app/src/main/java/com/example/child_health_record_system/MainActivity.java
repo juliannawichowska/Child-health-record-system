@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // tutaj powinna otwierac sie klasa AddNewChild
-                Intent intent = new Intent(MainActivity.this,AddNewChild.class);
+                Intent intent = new Intent(MainActivity.this, AddNewChild.class);
                         startActivity(intent);
             }
         });

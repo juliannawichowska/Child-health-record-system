@@ -47,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 JSONObject logindata = new JSONObject();
-                loginedit.getText().toString();
-                 passedit.getText().toString();
+                user_login = loginedit.getText().toString();
+                user_pass = passedit.getText().toString();
                 if (user_login != "" && user_pass != "") {
                     try {
                         // dane wkładam do JSONa
