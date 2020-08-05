@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,8 +28,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static String my_url = "192.168.0.66:8080";
-    Button add_child_btn, child_list_btn;
+    Button add_child_btn, child_list_btn, submit_child;
     TextView welcome_text;
+    private String choosen_child_name;
+    private String choosen_child_surname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         welcome_text.setText("Aplikacja rodzica");
 
         add_child_btn = findViewById(R.id.button2);
+        submit_child = findViewById(R.id.menudziecka);
         add_child_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,20 +50,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        child_list_btn = findViewById(R.id.child_list_btn);
-        child_list_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                JSONObject child_data = new JSONObject();
-                try {
-                    child_data.put("login", LoginActivity.user_login);
-                    child_data.put("password", LoginActivity.user_pass);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                new ChildList().execute("http://192.168.0.66:8080/dzienniczek-serwer/childlist", child_data.toString());
+            JSONObject child_data = new JSONObject();
+            try {
+                child_data.put("login", LoginActivity.user_login);
+                child_data.put("password", LoginActivity.user_pass);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        });
+            new ChildList().execute("http://192.168.0.66:8080/dzienniczek-serwer/childlist", child_data.toString());
     }
 
     private class ChildList extends AsyncTask<String, Void, String> {
@@ -161,18 +160,18 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 for (int j = 0; j < numberOfButtonsPerRow; j++) {
-                    Button button = new Button(MainActivity.this);
+                    RadioButton button = new RadioButton(MainActivity.this);
                     // You can set button parameters here:
                     button.setId(buttonIdNumber);
                     button.setLayoutParams(params);
                     button.setText(imie + " " + nazwisko);
                     final int finalButtonIdNumber = buttonIdNumber;
+                    final String finalImie = imie;
+                    final String finalNazwisko = nazwisko;
                     button.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View view) {
-
-//                            Intent is = new Intent(getApplicationContext(), MainActivity.class);
-//                            is.putExtra("buttonVariable", finalButtonIdNumber);
-//                            startActivity(is);
+                            choosen_child_name = finalImie;
+                            choosen_child_surname = finalNazwisko;
                         }
                     });
 
@@ -181,6 +180,18 @@ public class MainActivity extends AppCompatActivity {
                 }
                 verticalLayout.addView(newLine);
             }
+            submit_child.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (choosen_child_name.isEmpty() || choosen_child_surname.isEmpty()) {
+                        Toast.makeText(getApplicationContext(),"Wybierz dziecko z listy powyżej",Toast.LENGTH_SHORT).show();
+                    }
+                    Intent is = new Intent(getApplicationContext(), ChildMenu.class);
+                    is.putExtra("ChildName", choosen_child_name);
+                    is.putExtra("ChildSurname", choosen_child_surname);
+                    startActivity(is);
+                }
+            });
         }
     }
 }
